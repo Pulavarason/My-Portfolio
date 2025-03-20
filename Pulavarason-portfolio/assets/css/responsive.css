@@ -81,19 +81,4 @@
         padding: 20px;
     }
 }
-html, body {
-    height: auto;
-    min-height: 100%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-
-body {
-    min-height: 100vh;
-}
-
-#main-content {
-    min-height: 100vh; /* Ensures enough height for scrolling */
-    overflow: hidden; /* Prevents unwanted scrolling issues */
-}
 
