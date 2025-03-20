@@ -136,6 +136,14 @@
 /* .text2{
     align-content: center;
 } */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
 
 
 </style>
@@ -495,7 +503,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <!-- Form -->
-                    <form action="https://api.web3forms.com/api/v1/submit" method="POST" id="contact-form" class="contact-form bg-white" autocomplete="off">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" class="contact-form bg-white" autocomplete="off">
     <!-- Hidden Access Key -->
     <input type="hidden" name="access_key" value="73058a59-660d-4e41-ac7d-df1f06bbd6da">
     <input type="hidden" name="from_name" value="Portfolio Contact Form">
@@ -527,43 +535,48 @@
 
 <!-- JavaScript for Success/Error Message Handling -->
 <script>
-document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+document.getElementById("contact-form").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Stop default form submission
+
     let form = event.target;
     let formData = new FormData(form);
+    let messageBox = document.querySelector(".form-message");
 
-    fetch(form.action, {
-        method: form.method,
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        let messageBox = document.querySelector(".form-message");
-        if (data.success) {
+    try {
+        let response = await fetch(form.action, {
+            method: form.method,
+            body: formData
+        });
+
+        let result = await response.json();
+
+        if (result.success) {
             messageBox.style.color = "green";
-            messageBox.innerText = "Message sent successfully!";
+            messageBox.innerHTML = "✅ Message sent successfully!";
             form.reset(); // Clear the form after submission
         } else {
             messageBox.style.color = "red";
-            messageBox.innerText = "Error sending message. Try again.";
+            messageBox.innerHTML = "❌ Error sending message. Try again.";
         }
-    })
-    .catch(error => {
+    } catch (error) {
         console.error("Error:", error);
-        document.querySelector(".form-message").style.color = "red";
-        document.querySelector(".form-message").innerText = "Something went wrong. Try again.";
-    });
+        messageBox.style.color = "red";
+        messageBox.innerHTML = "❌ Something went wrong. Try again.";
+    }
+
+    // Clear message after 5 seconds
+    setTimeout(() => {
+        messageBox.innerHTML = "";
+    }, 5000);
 });
 </script>
-
-                    <!-- // Form -->
+     <!-- // Form -->
                 </div>
             </div>
             <!-- // Contact Form -->
         </div>
     </section>      
-    
-      
+     
       <script>
         window.addEventListener("scroll", function () {
   const header = document.querySelector(".navbar");
