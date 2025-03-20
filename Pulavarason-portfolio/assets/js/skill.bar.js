@@ -2,19 +2,34 @@
     "use strict";
 
     /*==========================
-        About Area
+        Skill Bar Animation Fix
     ============================*/
+    $(document).ready(function () {
+        function animateSkillBars() {
+            var skillsSection = $('#skills');
+            if (skillsSection.length) {
+                var offsetTop = skillsSection.offset().top;
+                var windowHeight = $(window).height();
+                var scrollTop = $(window).scrollTop();
 
-    var offsetTop = $('#skills').offset().top;
-    $(window).on('scroll', function () {
-        var height = $(window).height();
-        if ($(window).scrollTop() + height > offsetTop) {
-            jQuery('.skillbar').each(function () {
-                jQuery(this).find('.skillbar-bar').animate({
-                    width: jQuery(this).attr('data-percent')
-                }, 1000);
-            });
+                if (scrollTop + windowHeight > offsetTop) {
+                    $('.skillbar').each(function () {
+                        var $this = $(this);
+                        if (!$this.hasClass('animated')) { // Prevent repeated animations
+                            $this.addClass('animated');
+                            $this.find('.skillbar-bar').animate({
+                                width: $this.attr('data-percent')
+                            }, 1000);
+                        }
+                    });
+                }
+            }
         }
+
+        // Run animation on scroll
+        $(window).on('scroll', animateSkillBars);
+        animateSkillBars(); // Run once on page load in case already in view
     });
 
 }(jQuery));
+
