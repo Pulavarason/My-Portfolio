@@ -82,15 +82,16 @@
     }
 }
 html, body {
-    height: auto; /* Let content define height */
-    overflow-x: hidden; /* Fix horizontal scrolling issues */
-    scroll-behavior: smooth; /* Enable smooth scrolling */
+    height: auto; /* Auto height so content can expand */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    overflow-y: auto; /* Ensures scrolling works */
+    scroll-behavior: smooth; /* Enables smooth scrolling */
 }
 
-/* Fix skills section visibility */
+/* Ensure there's enough space at the bottom */
 .skills-section {
     min-height: 100vh;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
 }
 
 
