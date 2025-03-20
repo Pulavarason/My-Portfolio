@@ -81,7 +81,10 @@
         padding: 20px;
     }
 }
-
+.section, .contact {
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
 /* Fix footer position */
 .footer {
     min-height: 100px;
