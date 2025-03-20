@@ -82,18 +82,17 @@
     }
 }
 html, body {
-    height: 100%;
-    scroll-behavior: smooth; /* Smooth scrolling */
+    height: auto; /* Let content define height */
+    overflow-x: hidden; /* Fix horizontal scrolling issues */
+    scroll-behavior: smooth; /* Enable smooth scrolling */
 }
-.section, .contact {
+
+/* Fix skills section visibility */
+.skills-section {
     min-height: 100vh;
     padding-bottom: 50px;
 }
-/* Fix footer position */
-.footer {
-    min-height: 100px;
-    position: relative;
-}
+
 
 
 
