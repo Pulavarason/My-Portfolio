@@ -87,18 +87,6 @@
         overflow-y: auto;
         height: auto;
     }
-
-    .main-content {
-        overflow: auto;
-    }
-
-    .container {
-        min-height: 100vh; /* Ensures the content fills the screen */
-    }
-
-    .navbar.navbar-expand-lg.fixed-top {
-        position: relative; /* Prevents navbar from blocking scrolling */
-    }
 }
 
 
