@@ -1,26 +1,20 @@
 (function ($) {
     "use strict";
 
-    $(document).ready(function () {
-        function animateSkillBars() {
-            $('.skillbar').each(function () {
-                var $this = $(this);
-                var skillSectionTop = $('#skills').offset().top;
-                var windowBottom = $(window).scrollTop() + $(window).height();
+    /*==========================
+        About Area
+    ============================*/
 
-                if (windowBottom > skillSectionTop) {
-                    if (!$this.hasClass('animated')) { 
-                        $this.addClass('animated');
-                        $this.find('.skillbar-bar').animate({
-                            width: $this.attr('data-percent')
-                        }, 1000);
-                    }
-                }
+    var offsetTop = $('#skills').offset().top;
+    $(window).on('scroll', function () {
+        var height = $(window).height();
+        if ($(window).scrollTop() + height > offsetTop) {
+            jQuery('.skillbar').each(function () {
+                jQuery(this).find('.skillbar-bar').animate({
+                    width: jQuery(this).attr('data-percent')
+                }, 1000);
             });
         }
-
-        $(window).on('scroll', animateSkillBars);
-        animateSkillBars(); // Run once on load
     });
 
 }(jQuery));
