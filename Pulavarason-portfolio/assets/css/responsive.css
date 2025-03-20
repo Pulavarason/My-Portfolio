@@ -81,3 +81,32 @@
         padding: 20px;
     }
 }
+/* Ensure full-page scrolling */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto; /* Enables vertical scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+/* Fix hero section height */
+.hero-area {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Ensure sections have enough space */
+.section, .contact {
+    min-height: 100vh; /* Makes sure the contact section takes full screen height */
+    padding-bottom: 50px; /* Adds space at the bottom */
+}
+
+/* Fix footer position */
+.footer {
+    min-height: 100px;
+    position: relative;
+}
+
