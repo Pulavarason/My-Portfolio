@@ -1,26 +1,9 @@
-/* Ensure scrolling works properly */
-html, body {
-    height: auto;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    overflow-y: auto; /* Allows vertical scrolling */
-    scroll-behavior: smooth; /* Smooth scrolling for navigation */
-}
-
-/* General Hero Section Fix */
-.hero-area, .hero-area-slids, .single-slider {
-    min-height: 100vh; /* Ensures it takes full screen height */
-    display: flex;
-    align-items: center; /* Centers content */
-    justify-content: center;
-    text-align: center;
-}
-
-/* Medium Layout: 992px - 1200px */
+/* Medium Layout: 1280px. */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
     /* Add styles if necessary */
 }
 
-/* Tablet Layout: 768px - 991px */
+/* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .navbar.navbar-expand-lg.fixed-top {
         position: relative;
@@ -58,16 +41,9 @@ html, body {
         background-color: #333;
         margin-top: 10px;
     }
-
-    /* Adjust Hero Section for Mobile */
-    .hero-area, .hero-area-slids, .single-slider {
-        min-height: 100vh; /* Ensures full viewport height */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+    .hero-aria, .hero-area-slids, .single-slider {
+        height: 400px;
     }
-
     .hero-content h2 {
         font-size: 28px;
     }
@@ -105,3 +81,20 @@ html, body {
         padding: 20px;
     }
 }
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+
