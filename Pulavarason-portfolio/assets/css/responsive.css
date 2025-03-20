@@ -81,18 +81,6 @@
         padding: 20px;
     }
 }
-/* Ensure full-page scrolling */
-html, body {
-    height: 100%;
-    overflow-x: hidden;
-    scroll-behavior: smooth; /* Smooth scrolling */
-}
-
-/* Ensure sections have enough space */
-.section, .contact {
-    min-height: 100vh;
-    padding-bottom: 50px;
-}
 
 /* Fix footer position */
 .footer {
