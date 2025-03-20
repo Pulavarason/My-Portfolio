@@ -144,6 +144,47 @@
     z-index: 1000;
     transition: all 0.3s ease-in-out;
 }
+.navbar-toggler {
+    background-color: transparent;
+    border: none;
+    font-size: 28px;
+    color: white; /* Change color as needed */
+    cursor: pointer;
+    display: none; /* Hide by default */
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-toggler {
+        display: block; /* Show only in mobile */
+    }
+
+    .navbar-collapse {
+        display: none; /* Hide menu initially */
+        background: #000; /* Background for the dropdown */
+        position: absolute;
+        top: 60px; /* Adjust as needed */
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-collapse.show {
+        display: block; /* Show menu when toggled */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .nav-item {
+        padding: 10px;
+    }
+}
 
 
 </style>
@@ -166,27 +207,34 @@
     <header id="header" class="header">
         <!-- ====== Navbar ====== -->   
         <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container">
-                <!-- Logo -->
-                <a class="navbar-brand logo" href="index.html">
-                </a>
-                <!-- // Logo -->
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand logo" href="index.html">
+            <!-- Add your logo image here -->
+            <img src="assets/logo.png" alt="Logo" class="logo-img">
+        </a>
+        <!-- // Logo -->
 
-                <!-- Mobile Menu -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"><span><i class="fa fa-bars"></i></span></button>
-                <!-- Mobile Menu -->
+        <!-- Mobile Menu Button -->
+        <button class="navbar-toggler" type="button" aria-expanded="false">
+            <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+        </button>
+        <!-- // Mobile Menu Button -->
 
-                <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="#home">HOME</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">PORTFOLIO</a></li>
-                        <li class="nav-item"><a class="nav-link" href="assets/Updated Resume..pdf" target="_blank" rel="noopener noreferrer">RESUME</a></li>
-                        <li class="nav-item"><a class="nav-link pr0" href="#contact">CONTACT</a></li>
-                    </ul>
-                </div>
-                
-        </nav>
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse main-menu" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a class="nav-link" href="#home">HOME</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">PORTFOLIO</a></li>
+                <li class="nav-item"><a class="nav-link" href="assets/Updated Resume..pdf" target="_blank" rel="noopener noreferrer">RESUME</a></li>
+                <li class="nav-item"><a class="nav-link pr0" href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+        <!-- // Navbar Links -->
+    </div>
+</nav>
+
         <!-- ====== // Navbar ====== -->
     </header>
     <div class="hero-aria" id="home">
@@ -575,8 +623,18 @@ document.getElementById("contact-form").addEventListener("submit", async functio
             </div>
             <!-- // Contact Form -->
         </div>
-    </section>      
-     
+    </section> 
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+
+    navbarToggler.addEventListener("click", function () {
+        navbarCollapse.classList.toggle("show");
+    });
+});
+</script>
+
       <script>
         window.addEventListener("scroll", function () {
   const header = document.querySelector(".navbar");
