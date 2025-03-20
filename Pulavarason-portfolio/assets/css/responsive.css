@@ -1,9 +1,9 @@
-/* Medium Layout: 1280px. */
+/* Medium Layout: 992px - 1200px */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
     /* Add styles if necessary */
 }
 
-/* Tablet Layout: 768px. */
+/* Tablet Layout: 768px - 991px */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .navbar.navbar-expand-lg.fixed-top {
         position: relative;
@@ -30,36 +30,53 @@
 
 /* Mobile Layout: 320px - 767px */
 @media only screen and (max-width: 767px) {
+    /* Ensure scrolling is not blocked */
+    html, body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-height: 100%;
+    }
+
     .section-title h2 {
         font-size: 22px;
     }
+    
     .navbar.navbar-expand-lg.fixed-top {
         position: relative;
         background-color: #000;
     }
+    
     .navbar-nav {
         background-color: #333;
         margin-top: 10px;
     }
-    .hero-aria, .hero-area-slids, .single-slider {
-        height: 400px;
+
+    /* Ensure hero section adapts properly */
+    .hero-area, .hero-area-slids, .single-slider {
+        min-height: 100vh;
     }
+
     .hero-content h2 {
         font-size: 28px;
     }
+    
     .hero-content h3 {
         font-size: 14px;
         margin: 10px 0;
     }
+    
     .about-content h2, .single-service h2 {
         font-size: 22px;
     }
+    
     .service-icon {
         font-size: 40px;
     }
+    
     .faq-content, .cta-button {
         margin-top: 10px;
     }
+    
     .contact-form {
         padding: 10px;
     }
@@ -70,13 +87,16 @@
     .hero-content h2 {
         font-size: 45px;
     }
+    
     .hero-content h3 {
         font-size: 18px;
         margin: 12px 0;
     }
+    
     .about-content, .faq-content {
         margin-top: 20px;
     }
+    
     .contact-form {
         padding: 20px;
     }
