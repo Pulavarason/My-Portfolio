@@ -88,15 +88,6 @@ html, body {
     scroll-behavior: smooth; /* Smooth scrolling */
 }
 
-/* Fix hero section height */
-.hero-area {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
 /* Ensure sections have enough space */
 .section, .contact {
     min-height: 100vh;
@@ -109,17 +100,5 @@ html, body {
     position: relative;
 }
 
-/* Fix animations */
-.skills-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* Make sure animations trigger on scroll */
-.skills-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 
