@@ -81,6 +81,16 @@
         padding: 20px;
     }
 }
+@media only screen and (min-width: 992px) {
+    .hero-content h2 {
+        font-size: 75px; /* Larger text for PC */
+    }
+
+    .hero-area {
+        min-height: 100vh;
+    }
+}
+
 html, body {
     height: auto; /* Auto height so content can expand */
     overflow-x: hidden; /* Prevents horizontal scroll */
