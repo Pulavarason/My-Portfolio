@@ -81,6 +81,11 @@
         padding: 20px;
     }
 }
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
 .section, .contact {
     min-height: 100vh;
     padding-bottom: 50px;
