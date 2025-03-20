@@ -495,28 +495,67 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <!-- Form -->
-                    <form action="https://api.web3forms.com/api/v1/submit" method="POST" id="contact-form" class="contact-form bg-white">
-                        <div class="row">
-                            <div class="col-lg-6 form-group">
-                                <input type="hidden" name="access_key" value="73058a59-660d-4e41-ac7d-df1f06bbd6da">
-                                <input type="text" class="form-control" name="name" required placeholder="Name">
-                            </div>
-                            <div class="col-lg-6 form-group">
-                                <input type="email" class="form-control" name="email" required placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="subject" required placeholder="Subject">
-                        </div>
+                    <form action="https://api.web3forms.com/api/v1/submit" method="POST" id="contact-form" class="contact-form bg-white" autocomplete="off">
+    <!-- Hidden Access Key -->
+    <input type="hidden" name="access_key" value="73058a59-660d-4e41-ac7d-df1f06bbd6da">
+    <input type="hidden" name="from_name" value="Portfolio Contact Form">
 
-                        <div class="form-group">
-                            <textarea name="message" id="" class="form-control" required placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-btn text-center">
-                            <button class="button" type="submit">Send Message</button>
-                            <p class="form-message"></p>
-                        </div>
-                    </form>
+    <div class="row">
+        <div class="col-lg-6 form-group">
+            <input type="text" class="form-control" name="name" required placeholder="Your Name">
+        </div>
+        <div class="col-lg-6 form-group">
+            <input type="email" class="form-control" name="email" required placeholder="Your Email">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" name="subject" required placeholder="Subject">
+    </div>
+
+    <div class="form-group">
+        <textarea name="message" class="form-control" required placeholder="Your Message"></textarea>
+    </div>
+
+    <div class="form-btn text-center">
+        <button class="button" type="submit">Send Message</button>
+    </div>
+
+    <!-- Success & Error Messages -->
+    <p class="form-message text-center"></p>
+</form>
+
+<!-- JavaScript for Success/Error Message Handling -->
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+    let form = event.target;
+    let formData = new FormData(form);
+
+    fetch(form.action, {
+        method: form.method,
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        let messageBox = document.querySelector(".form-message");
+        if (data.success) {
+            messageBox.style.color = "green";
+            messageBox.innerText = "Message sent successfully!";
+            form.reset(); // Clear the form after submission
+        } else {
+            messageBox.style.color = "red";
+            messageBox.innerText = "Error sending message. Try again.";
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        document.querySelector(".form-message").style.color = "red";
+        document.querySelector(".form-message").innerText = "Something went wrong. Try again.";
+    });
+});
+</script>
+
                     <!-- // Form -->
                 </div>
             </div>
